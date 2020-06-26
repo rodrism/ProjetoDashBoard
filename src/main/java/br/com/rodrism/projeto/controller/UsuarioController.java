@@ -21,7 +21,10 @@ public class UsuarioController {
 	
 	@GetMapping("/usuarios")
 	public ArrayList<Usuario> listarTudo(){
-		ArrayList<Usuario> lista = (ArrayList<Usuario>)dao.findAll(); //select * from table
+		ArrayList<Usuario> lista = (ArrayList<Usuario>)dao.findAll();//select * from table
+		for (Usuario u : lista) {
+			u.setSenha("********");
+		}
 		return lista;
 	}
 	
